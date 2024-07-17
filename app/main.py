@@ -33,7 +33,7 @@ pass_list = '''
 '''
 
 HOST = '127.0.0.1'  # 监听地址，建议监听本地然后由web服务器反代
-PORT = 80  # 监听端口
+PORT = 82  # 监听端口
 ASSET_URL = 'https://raw.githubusercontent.com/fishros/gh-proxy/master/index.html'  # 主页
 
 white_list = [tuple([x.replace(' ', '') for x in i.split('/')]) for i in white_list.split('\n') if i]

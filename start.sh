@@ -1,10 +1,12 @@
 pip install flask requests uwsgi
 cd app
+export PORT=82
 uwsgi --ini uwsgi.ini
 
 # add config file:
 # server {
 #     listen 80;
+#     server_name github.fishros.org;
 #     location / {
 #         try_files $uri @app;
 #     }
@@ -16,3 +18,14 @@ uwsgi --ini uwsgi.ini
 #         uwsgi_busy_buffers_size 512k;
 #     }
 # }
+
+# server {
+#     listen 80;
+#     server_name github.fishros.org;
+
+#     location / {
+#         proxy_pass http://127.0.0.1:82;
+#         proxy_set_header Host $host;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#     }
