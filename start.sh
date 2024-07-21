@@ -1,6 +1,6 @@
-pip install flask requests uwsgi
-cd app
-export PORT=82
+#! /usr/bin/env bash
+set -e
+cd /app
 uwsgi --ini uwsgi.ini
 
 # add config file:
